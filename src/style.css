@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+:root{
+    width: 100%;
+    background-color: white;
+padding: 5px;
+    
+}
+
+
