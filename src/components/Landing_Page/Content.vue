@@ -4,7 +4,7 @@ import Cards from "./Cards.vue";
 
 <template>
   <section
-    class="relative bg-[#0B3C38] text-white overflow-hidden rounded-t-2xl mb-10"
+    class="relative bg-pink-300 text-white overflow-hidden rounded-t-2xl mb-10"
     style="clip-path: ellipse(90% 100% at 50% 0%)"
   >
     <!-- Content -->
@@ -22,7 +22,7 @@ import Cards from "./Cards.vue";
         </p>
 
         <button
-          class="bg-lime-400 text-black px-6 py-3 rounded font-medium ml-[25%] cursor-pointer"
+          class="bg-pink-500 text-black px-6 py-3 rounded font-medium ml-[25%] cursor-pointer"
         >
           <RouterLink to="/product">Shop now</RouterLink>
         </button>

@@ -1,31 +1,40 @@
 <script setup>
 import { ref } from 'vue'
-
-// Items array (cards)
+import Img1 from '../../assets/antivirus.png'
+import Img2 from '../../assets/editing.jpg'
+import Img3 from '../../assets/business.png'
+import Img4 from '../../assets/aitools.jpg'
+import Img5 from '../../assets/design.jpg'
 const items = [
   {
     id: 1,
-    title: 'Fruits',
-    description: 'Fresh and organic fruits',
-    image: 'https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
+    title: 'Editing Tools',
+    description: 'Tools for edit Video and Photo',
+    image:Img2
   },
   {
     id: 2,
-    title: 'Vegetables',
-    description: 'Locally sourced vegetables',
-    image: 'https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
+    title: 'Antivirus',
+    description: 'Tools to prevent computer system from virus',
+    image: Img1
   },
   {
     id: 3,
-    title: 'Milk & Dairy',
-    description: 'High-quality dairy products',
-    image: 'https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
+    title: 'Business Tools',
+    description: 'Tools for improve Business performance ',
+    image:Img3
   },
   {
     id: 4,
-    title: 'Meat',
-    description: 'Sustainably sourced meat',
-    image: 'https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
+    title: 'AI Tools',
+    description: 'Tools for make Automation',
+    image: Img4
+  },
+    {
+    id: 5,
+    title: 'Design Tools',
+    description: 'Tools for make design',
+    image: Img5
   }
 ]
 
@@ -39,11 +48,11 @@ const prev = () => {
 </script>
 
 <template>
-  <div class="flex flex-col items-center h-52 w-52">
-    <div class="carousel-item relative w-full flex justify-center">
-      <div class="card bg-base-100 image-full w-64 shadow-sm transition-all duration-500">
+  <div class="flex flex-col items-center">
+    <div class="carousel-item relative flex justify-center">
+      <div class="card bg-base-100 image-full shadow-sm transition-all duration-500">
         <figure>
-          <img :src="items[current].image" alt="Image" />
+          <img :src="items[current].image" alt="Image" class="h-full w-full object-cover" />
         </figure>
         <div class="card-body">
           <h2 class="card-title">{{ items[current].title }}</h2>
