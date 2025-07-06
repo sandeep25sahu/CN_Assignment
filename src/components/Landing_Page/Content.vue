@@ -22,7 +22,7 @@ import Cards from "./Cards.vue";
         </p>
 
         <button
-          class="bg-pink-500 text-black px-6 py-3 rounded font-medium ml-[25%] cursor-pointer"
+          class=" bg-white hover:bg-amber-400 hover:text-white   opacity-80 text-black px-6 py-2 rounded font-medium ml-[25%] cursor-pointer"
         >
           <RouterLink to="/product">Shop now</RouterLink>
         </button>

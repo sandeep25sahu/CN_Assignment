@@ -48,24 +48,23 @@ const prev = () => {
 </script>
 
 <template>
-  <div class="flex flex-col items-center">
-    <div class="carousel-item relative flex justify-center">
-      <div class="card bg-base-100 image-full shadow-sm transition-all duration-500">
-        <figure>
-          <img :src="items[current].image" alt="Image" class="h-full w-full object-cover" />
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title">{{ items[current].title }}</h2>
-          <p>{{ items[current].description }}</p>
-         
-        </div>
+ <div class="flex flex-col items-center">
+  <div class="carousel-item relative flex justify-center">
+    <div class="card bg-base-100 image-full shadow-sm transition-all duration-500">
+      <figure class="h-64 w-96">
+        <img :src="items[current].image" alt="Image" class="h-full w-full object-cover" />
+      </figure>
+      <div class="card-body">
+        <h2 class="card-title text-3xl text-amber-400 font-bold">{{ items[current].title }}</h2>
+        <p>{{ items[current].description }}</p>
       </div>
     </div>
+  </div>
 
 
     <div class="flex mt-1 space-x-4">
-      <button @click="prev" class="btn btn-circle size-6">❮</button>
-      <button @click="next" class="btn btn-circle size-6 ">❯</button>
+      <button @click="prev" class="btn btn-circle size-6 bg-amber-400">❮</button>
+      <button @click="next" class="btn btn-circle size-6  bg-amber-400 ">❯</button>
     </div>
   </div>
   

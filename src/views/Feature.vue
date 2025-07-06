@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <section class="bg-gray-50 py-16 px-6">
+  <section class="bg-gray-50 ">
     <div class="max-w-5xl mx-auto text-center mb-12">
       <h1 class="text-4xl font-bold text-gray-800 mb-4">Discover Our Features</h1>
       <p class="text-gray-600">

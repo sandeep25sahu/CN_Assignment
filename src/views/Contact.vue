@@ -1,9 +1,11 @@
 <script setup>
+import Authentication from '../components/Authentication/Authentication.vue';
+
 
 </script>
 
 <template>
-  <section class="bg-gray-100 py-16 px-4">
+  <section class="bg-gray-100 mt-20">
     <div class="max-w-3xl mx-auto text-center mb-12">
       <h1 class="text-4xl font-bold text-gray-800 mb-4">Contact Us</h1>
       <p class="text-gray-600">We would love to hear from you. Please fill out the form below and we'll get in touch with you shortly.</p>
@@ -48,4 +50,5 @@
       </button>
     </form>
   </section>
+  <Authentication/>
 </template>
