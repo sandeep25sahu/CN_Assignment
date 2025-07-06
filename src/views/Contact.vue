@@ -1,5 +1,5 @@
 <script setup>
-// You can add form logic or submission API here if needed
+
 </script>
 
 <template>
