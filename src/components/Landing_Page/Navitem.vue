@@ -23,7 +23,7 @@ const closeDropdown = () => {
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width=""
+          stroke-width="2"
           d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
         />
       </svg>
@@ -32,10 +32,10 @@ const closeDropdown = () => {
     <!-- Dropdown Menu -->
     <ul
       v-if="isOpen"
-      class="absolute menu bg-base-100 rounded-box z-10 w-52 p-2 shadow-sm mt-2"
+      class="absolute menu bg-pink-400  rounded-box z-10 w-52 p-2 shadow-sm mt-2 font-semibold text-md "
     >
       <li>
-        <RouterLink to="/" @click="closeDropdown">Home</RouterLink>
+        <RouterLink to="/" @click="closeDropdown" >Home</RouterLink>
       </li>
       <li>
         <RouterLink to="/product" @click="closeDropdown">Product</RouterLink>
@@ -50,17 +50,11 @@ const closeDropdown = () => {
   </div>
       
     <div class="flex ml-4">
-       <li>
-        <RouterLink to="/" @click="closeDropdown" class="cursor-pointer text-xl text-black" >daisyUI</RouterLink>
-      </li>
-      
+        <RouterLink to="/" @click="closeDropdown" class="cursor-pointer text-2xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent" > SoftifyMart</RouterLink>
     </div>
-  
- <input
-        type="text"
-        placeholder="Search for products"
-        class="input md:w-auto rounded-2xl h-8 my-auto ml-4 flex-1"
-      />
+
+
+
     <div class="flex-1 navbar-end">
       <div class="dropdown dropdown-end">
         <div tabindex="0" role="button" class=" btn-ghost btn-circle avatar">

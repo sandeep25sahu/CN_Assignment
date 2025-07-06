@@ -5,8 +5,21 @@
 <template>
     <footer class="footer footer-horizontal footer-center bg-base-200 text-base-content p-10">
   <nav class="grid grid-flow-col gap-4">
-    <a class="link link-hover">About us</a>
-    <a class="link link-hover">Contact</a>
+   <ul class="   font-semibold text-xl flex gap-3"
+    >
+      <li>
+        <RouterLink to="/" @click="closeDropdown" >Home</RouterLink>
+      </li>
+      <li>
+        <RouterLink to="/product" @click="closeDropdown">Product</RouterLink>
+      </li>
+      <li>
+        <RouterLink to="/features" @click="closeDropdown">Features</RouterLink>
+      </li>
+      <li>
+        <RouterLink to="/contact" @click="closeDropdown">Contact</RouterLink>
+      </li>
+    </ul>
  
   </nav>
   <nav>

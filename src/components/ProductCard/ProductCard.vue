@@ -187,23 +187,25 @@ import {educationalTools,photoEditing,videoEditing,antivirus,musicProduction,bus
 
 
 <template>
-  <div class="p-6 ">
+  <div class="p-6 bg-white">
+    <h1 class="text-5xl text-blue-500 font-bold text-center my-5">Choose Category</h1>
     <!-- Daisy Tabs -->
-    <div role="tablist" class="tabs tabs-boxed mb-6 bg-base-200 sm:visible">
+    <div role="tablist" class=" tabs-boxed mb-6 bg-base-200 p-3 justify-evenly rounded-b-lg hidden sm:flex">
       <a
-      class="text-black bg-amber-200 rounded-3xl mx-2 p-2"
+      class=" bg-amber-200 rounded-3xl mx-2 p-2"
         role="tab"
-        :class="selectedType === 'all' ? 'tab tab-active' : 'tab'"
-        @click="selectedType = 'all'"
+         @click="selectedType = 'all'"
+        :class="selectedType === 'all' ? ' tab-active  text-red-500' : ' text-black'"
+       
       >
         All
       </a>
       <a
-      class="text-black bg-amber-200 rounded-3xl mx-2 p-2 cursor-pointer "
+      class=" bg-amber-200 rounded-3xl mx-2 p-2 cursor-pointer "
         v-for="type in types"
         :key="type.value"
         role="tab"
-        :class="selectedType === type.value ? '  text-black' : 'text-black'"
+        :class="selectedType === type.value ?  ' tab-active text-red-500' : '  '"
         @click="selectedType = type.value"
       >
         {{ type.label }}
@@ -212,7 +214,7 @@ import {educationalTools,photoEditing,videoEditing,antivirus,musicProduction,bus
 
 
      <!-- Dropdown for small screens -->
-    <div class=" mb-6">
+    <div class="sm:hidden visible mb-6">
       <select
         v-model="selectedType"
         class="select select-bordered w-full"
@@ -233,7 +235,7 @@ import {educationalTools,photoEditing,videoEditing,antivirus,musicProduction,bus
       <div
         v-for="product in filteredProducts"
         :key="product.id"
-        class="card bg-base-100 shadow-xl border border-gray-200"
+        class="card  shadow-xl border-2 border-gray-200"
       >
         <figure><img :src="product.image" alt="product image" class="h-48 object-contain p-4" /></figure>
         <div class="card-body">
