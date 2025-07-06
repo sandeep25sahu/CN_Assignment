@@ -1,10 +1,11 @@
 <script setup>
-
-import HelloWorld from './components/HelloWorld.vue';
+import Navbar from './components/Landing_Page/Navitem.vue'
+import Footeritem from './components/Landing_Page/Footeritem.vue'
 </script>
 
 <template>
-    <HelloWorld class="" />
+  <Navbar />
+<Footeritem/>
 </template>
 
 <style >
