@@ -3,6 +3,8 @@ import { ref, computed } from "vue";
 import { products } from "../Constant/Constant";
 
 const selectedType = ref("all");
+const showModal = ref(false);
+const selectedProduct = ref(null);
 
 const types = [
   { label: "Photo Editing", value: "photoEditing" },
@@ -14,6 +16,15 @@ const types = [
   { label: "AI Tools", value: "aiTools" },
   { label: "Educational Tools", value: "educationalTools" },
 ];
+function openModal(product) {
+  selectedProduct.value = product;
+  showModal.value = true;
+}
+
+function closeModal() {
+  showModal.value = false;
+  selectedProduct.value = null;
+}
 
 const filteredProducts = computed(() => {
   if (selectedType.value === "all") {
@@ -24,11 +35,11 @@ const filteredProducts = computed(() => {
 </script>
 
 <template>
-  <div class=" bg-gray-100 mt-20">
+  <div class="bg-gray-100 mt-20 mb-20">
     <h1 class="text-4xl text-gray-800 font-bold text-center mb-3">
       Choose Category
     </h1>
-    <p class="text-center mb-10 text-gray-600">
+    <p class="text-center mb-10 text-gray-600 mx-auto w-[60%]">
       Choose a category to see handpicked software and AI tools tailored for
       different needs — from entertainment to office work and beyond.
     </p>
@@ -63,7 +74,7 @@ const filteredProducts = computed(() => {
     <div class="sm:hidden visible mb-6">
       <select
         v-model="selectedType"
-        class="select select-bordered w-full bg-pink-300"
+        class="select select-bordered w-full bg-amber-300"
       >
         <option value="all">All</option>
         <option v-for="type in types" :key="type.value" :value="type.value">
@@ -90,39 +101,66 @@ const filteredProducts = computed(() => {
           <h2 class="card-title">{{ product.name }}</h2>
           <p>{{ product.description }}</p>
           <div class="mt-2 font-bold text-primary">
-            ₹{{ product.price.toLocaleString() }}
+            ₹{{ product.price.toLocaleString() }}/year
           </div>
 
-          <!-- <button
-          class=" bg-amber-400 hover:bg-blue-400 hover:text-white opacity-80 text-black  p-2 rounded font-medium justify-end cursor-pointer"
-        >
-          <RouterLink to="/order">Buy now </RouterLink>
-        </button> -->
-
           <!-- Open the modal using ID.showModal() method -->
-          <button class="bg-amber-400 hover:bg-blue-400 hover:text-white opacity-80 text-black  p-2 rounded font-medium justify-end cursor-pointer" onclick="my_modal_5.showModal()">
-            Buy now 
+          <button
+            class="bg-amber-400 hover:bg-blue-400 hover:text-white opacity-80 text-black p-2 rounded font-medium justify-end cursor-pointer"
+            @click="openModal(product)"
+          >
+            Buy now
           </button>
         </div>
       </div>
     </div>
   </div>
-  <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
-    <div class="modal-box bg-white">
-
-      <h3 class="text-lg font-bold">Hello!</h3>
-      <p class="py-4">Press ESC key or click the button below to close</p>
 
 
-      <div class="modal-action">
-         <button class="btn bg-green-500">Pay Now</button>
-        <form method="dialog">
-          
-          <button class="btn bg-red-500 ">Cancel</button>
-        </form>
+
+
+
+
+
+  <div
+    v-if="showModal"
+    class="fixed inset-0 flex justify-center items-center "
+  >
+    <div class="bg-white p-6 rounded shadow-lg max-w-md w-full relative">
+      <div class="card  w-96 shadow-lg">
+        <figure>
+          <img :src="selectedProduct.image" class="rounded-xl" alt="selectedProductImage" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">{{ selectedProduct.name }}</h2>
+          <p>{{ selectedProduct.description }}</p>
+          <p class="mb-2">
+            Price: ₹{{ selectedProduct.price }}+<span>18% GST</span>
+          </p>
+<div class="flex justify-center">
+
+
+          <button
+            @click=""
+            class=" bg-green-500 p-2 mr-2 text-white rounded-xl cursor-pointer w-32"
+          >
+            Pay ₹{{ selectedProduct.price * 0.18 + selectedProduct.price }}
+          </button>
+
+          <button
+            @click="closeModal"
+            class=" bg-red-500 p-2 w-16 text-white rounded-xl cursor-pointer"
+          >
+            Cancel
+          </button>
+</div>
+        </div>
       </div>
     </div>
-  </dialog>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.5); 
+}</style>

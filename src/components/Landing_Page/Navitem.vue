@@ -62,7 +62,7 @@ const closeDropdown = () => {
       >
     </div>
 
-    <div class="  justify-end font-bold gap-3 text-yellow-400 sm:flex hidden">
+    <div class="ml-auto font-bold gap-3 text-xl mr-24 text-yellow-400 sm:flex hidden">
       <RouterLink to="/" @click="closeDropdown">Home</RouterLink>
       <RouterLink to="/product" @click="closeDropdown">Product</RouterLink>
       <RouterLink to="/features" @click="closeDropdown">Features</RouterLink>

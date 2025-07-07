@@ -5,7 +5,7 @@ import Authentication from '../components/Authentication/Authentication.vue';
 </script>
 
 <template>
-  <section class="bg-gray-100 mt-20">
+  <section class="bg-gray-100 mt-20 w-[70%] mx-auto p-8">
     <div class="max-w-3xl mx-auto text-center mb-12">
       <h1 class="text-4xl font-bold text-gray-800 mb-4">Contact Us</h1>
       <p class="text-gray-600">We would love to hear from you. Please fill out the form below and we'll get in touch with you shortly.</p>
@@ -18,7 +18,7 @@ import Authentication from '../components/Authentication/Authentication.vue';
           type="text"
           id="name"
           placeholder="Your Name"
-          class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+          class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
         />
       </div>
 
@@ -28,7 +28,7 @@ import Authentication from '../components/Authentication/Authentication.vue';
           type="email"
           id="email"
           placeholder="Your Email"
-          class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+          class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
         />
       </div>
 
@@ -38,13 +38,13 @@ import Authentication from '../components/Authentication/Authentication.vue';
           id="message"
           rows="5"
           placeholder="Your Message"
-          class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+          class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
         ></textarea>
       </div>
 
       <button
         type="submit"
-        class="w-full bg-green-600 text-white font-semibold py-3 rounded hover:bg-green-700 transition"
+        class="w-full bg-amber-400 text-white font-semibold py-3 rounded hover:bg-green-700 transition"
       >
         Send Message
       </button>
