@@ -1,9 +1,8 @@
 <script setup>
 import { ref, computed } from "vue";
-import { products } from "../Constant/Constant";
+import { products } from "../Constant/Constant"; 
 
 const selectedType = ref("all");
-const showModal = ref(false);
 const selectedProduct = ref(null);
 
 const types = [
@@ -16,13 +15,14 @@ const types = [
   { label: "AI Tools", value: "aiTools" },
   { label: "Educational Tools", value: "educationalTools" },
 ];
+
 function openModal(product) {
   selectedProduct.value = product;
-  showModal.value = true;
+  document.getElementById('my_modal_5').showModal();
 }
 
 function closeModal() {
-  showModal.value = false;
+  document.getElementById('my_modal_5').close();
   selectedProduct.value = null;
 }
 
@@ -43,7 +43,8 @@ const filteredProducts = computed(() => {
       Choose a category to see handpicked software and AI tools tailored for
       different needs — from entertainment to office work and beyond.
     </p>
-    <!-- Daisy Tabs -->
+
+    <!-- Tabs -->
     <div
       role="tablist"
       class="tabs-boxed mb-6 shadow-xl p-3 justify-evenly rounded-b-4xl hidden sm:flex"
@@ -52,19 +53,17 @@ const filteredProducts = computed(() => {
         class="bg-yellow-300 rounded-3xl mx-2 p-2 cursor-pointer"
         role="tab"
         @click="selectedType = 'all'"
-        :class="
-          selectedType === 'all' ? ' tab-active  text-red-500' : ' text-black'
-        "
+        :class="selectedType === 'all' ? 'tab-active text-red-500' : 'text-black'"
       >
-        All Product
+        All Products
       </a>
       <a
         class="bg-yellow-300 rounded-3xl mx-2 p-2 cursor-pointer"
         v-for="type in types"
         :key="type.value"
         role="tab"
-        :class="selectedType === type.value ? ' tab-active text-red-500' : '  '"
         @click="selectedType = type.value"
+        :class="selectedType === type.value ? 'tab-active text-red-500' : ''"
       >
         {{ type.label }}
       </a>
@@ -103,8 +102,6 @@ const filteredProducts = computed(() => {
           <div class="mt-2 font-bold text-primary">
             ₹{{ product.price.toLocaleString() }}/year
           </div>
-
-          <!-- Open the modal using ID.showModal() method -->
           <button
             class="bg-amber-400 hover:bg-blue-400 hover:text-white opacity-80 text-black p-2 rounded font-medium justify-end cursor-pointer"
             @click="openModal(product)"
@@ -116,51 +113,49 @@ const filteredProducts = computed(() => {
     </div>
   </div>
 
-
-
-
-
-
-
-  <div
-    v-if="showModal"
-    class="fixed inset-0 flex justify-center items-center "
-  >
-    <div class="bg-white p-6 rounded shadow-lg max-w-md w-full relative">
-      <div class="card  w-96 shadow-lg">
-        <figure>
-          <img :src="selectedProduct.image" class="rounded-xl" alt="selectedProductImage" />
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title">{{ selectedProduct.name }}</h2>
-          <p>{{ selectedProduct.description }}</p>
-          <p class="mb-2">
-            Price: ₹{{ selectedProduct.price }}+<span>18% GST</span>
-          </p>
-<div class="flex justify-center">
-
-
+  <!-- Modal -->
+ <dialog
+  id="my_modal_5"
+  class="modal modal-bottom sm:modal-middle"
+>
+  <div class="bg-white rounded-xl shadow-lg w-full max-w-md mx-auto " v-if="selectedProduct">
+    <div class="card w-full">
+      <figure class="p-4">
+        <img
+          :src="selectedProduct.image"
+          alt="selectedProductImage"
+          class="rounded-xl w-full h-60 object-contain"
+        />
+      </figure>
+      <div class="card-body px-6 py-4">
+        <h2 class="card-title text-lg font-bold">{{ selectedProduct.name }}</h2>
+        <p class="text-gray-600 mb-2">{{ selectedProduct.description }}</p>
+        <p class="mb-4 font-medium">
+          Price: ₹{{ selectedProduct.price }} + <span>18% GST</span>
+        </p>
+        <div class="flex justify-center space-x-2">
           <button
             @click=""
-            class=" bg-green-500 p-2 mr-2 text-white rounded-xl cursor-pointer w-32"
+            class="bg-green-500 px-4 py-2 text-white rounded-xl cursor-pointer"
           >
-            Pay ₹{{ selectedProduct.price * 0.18 + selectedProduct.price }}
+            Pay ₹{{ (selectedProduct.price * 0.18 + selectedProduct.price).toFixed(0) }}
           </button>
-
           <button
             @click="closeModal"
-            class=" bg-red-500 p-2 w-16 text-white rounded-xl cursor-pointer"
+            class="bg-red-500 px-4 py-2 text-white rounded-xl cursor-pointer"
           >
             Cancel
           </button>
-</div>
         </div>
       </div>
     </div>
   </div>
+</dialog>
+
 </template>
 
 <style scoped>
 .modal::backdrop {
-  background-color: rgba(0, 0, 0, 0.5); 
-}</style>
+  background-color: rgba(0, 0, 0, 0.5);
+}
+</style>
