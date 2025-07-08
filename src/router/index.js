@@ -7,6 +7,7 @@ import ProductCard from "../components/ProductCard/ProductCard.vue";
 
 
 import Home from "../views/Home.vue";
+import ReviewPage from "../components/User_Review/ReviewPage.vue";
 
 
 const routes = [
@@ -14,6 +15,7 @@ const routes = [
   { path: "/contact", name: "Contact", component: Contact },
   { path: "/features", name: "Feature", component: Feature },
   { path: "/product", name: "product", component: ProductCard },
+   { path: "/review", name: "review", component: ReviewPage }
  
 ];
 

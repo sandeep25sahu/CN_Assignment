@@ -1,15 +1,16 @@
 <script setup>
 import { ref, computed } from "vue";
 import { products } from "../Constant/Constant";
+import "animate.css";
 const selectedType = ref("all");
 const selectedProduct = ref(null);
 const showAlert = ref(false);
 
 const types = [
-  { label: "Photo Editing", value: "photoEditing" },
-  { label: "Video Editing", value: "videoEditing" },
-  { label: "Antivirus", value: "antivirus" },
   { label: "Music Production", value: "musicProduction" },
+  { label: "Video Editing", value: "videoEditing" },
+  { label: "Photo Editing", value: "photoEditing" },
+  { label: "Antivirus", value: "antivirus" },
   { label: "Business Tools", value: "businessTools" },
   { label: "Design Tools", value: "designTools" },
   { label: "AI Tools", value: "aiTools" },
@@ -65,7 +66,9 @@ const filteredProducts = computed(() => {
     <span>Your purchase has been confirmed!</span>
   </div>
 
-  <div class="bg-gray-100 mt-20 mb-20">
+  <div
+    class="bg-gray-100 mt-20 mb-20 animate__fadeIn animate__animated animate__slow"
+  >
     <h1 class="text-4xl text-gray-800 font-bold text-center mb-3">
       Choose Category
     </h1>
@@ -102,7 +105,9 @@ const filteredProducts = computed(() => {
     </div>
 
     <!-- Dropdown for small screens -->
-    <div class="sm:hidden visible mb-6">
+    <div
+      class="sm:hidden visible mb-6 animate__fadeIn animate__animated animate__slow"
+    >
       <select
         v-model="selectedType"
         class="select select-bordered w-full bg-amber-300"
@@ -119,7 +124,7 @@ const filteredProducts = computed(() => {
       <div
         v-for="product in filteredProducts"
         :key="product.id"
-        class="card shadow-xl border-2 border-gray-200"
+        class="card shadow-xl border-2 border-gray-200 animate__fadeIn animate__animated animate__slow"
       >
         <figure>
           <img

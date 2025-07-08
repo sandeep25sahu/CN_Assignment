@@ -5,10 +5,10 @@
 <template>
     <footer class="footer footer-horizontal footer-center bg-base-200 text-base-content p-10">
   <nav class="grid grid-flow-col gap-4">
-   <ul class="  font-semibold text-xl flex gap-3"
+   <ul class="  font-semibold text-xl sm:flex gap-3 "
     >
       <li>
-        <RouterLink to="/" @click="closeDropdown" >Home</RouterLink>
+        <RouterLink to="/" @click="closeDropdown" class="" >Home</RouterLink>
       </li>
       <li>
         <RouterLink to="/product" @click="closeDropdown">Product</RouterLink>

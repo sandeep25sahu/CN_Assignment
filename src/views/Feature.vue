@@ -1,9 +1,10 @@
 <script setup>
-// No script logic needed for static content
+import 'animate.css'
+
 </script>
 
 <template>
-  <section class="bg-gray-50 ">
+  <section class="bg-gray-50 animate__fadeIn animate__animated  animate__slow">
     <div class="max-w-5xl mx-auto text-center mb-12">
       <h1 class="text-4xl font-bold text-gray-800 mb-4">Discover Our Features</h1>
       <p class="text-gray-600">

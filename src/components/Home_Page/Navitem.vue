@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { RouterLink, RouterView } from "vue-router";
+import 'animate.css';
 const isOpen = ref(false);
 const closeDropdown = () => {
   isOpen.value = false;
@@ -8,7 +9,7 @@ const closeDropdown = () => {
 </script>
 <template>
   <div
-    class="fixed left-0 top-0 z-10 navbar-start rounded-xl rounded-e-3xl w-full shadow-xl bg-white  h-16 px-8"
+    class="fixed left-0 top-0 z-10 navbar-start rounded-xl rounded-e-3xl w-full shadow-xl bg-white h-16 px-8"
   >
     <div class="relative">
       <!-- Toggle Button -->
@@ -56,13 +57,13 @@ const closeDropdown = () => {
       <RouterLink
         to="/"
         @click="closeDropdown"
-        class="cursor-pointer text-2xl font-bold bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent"
+        class="cursor-pointer text-2xl font-bold bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent animate__fadeIn animate__animated  animate__slow"
       >
         SoftifyMart</RouterLink
       >
     </div>
 
-    <div class="ml-auto font-bold gap-3 text-xl mr-24 text-yellow-400 sm:flex hidden">
+    <div class="ml-auto font-bold gap-3 text-xl mr-24 text-yellow-400 sm:flex hidden animate__fadeIn animate__animated  animate__slow">
       <RouterLink to="/" @click="closeDropdown">Home</RouterLink>
       <RouterLink to="/product" @click="closeDropdown">Product</RouterLink>
       <RouterLink to="/features" @click="closeDropdown">Features</RouterLink>
