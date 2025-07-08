@@ -176,7 +176,7 @@ const filteredProducts = computed(() => {
         </figure>
 
 
-        <div class="card-body px-2 lg:px-6 lg:py-4 py-2 h-80 overflow-y-scroll overflow-x-hidden">
+       <div class="card-body px-2 lg:px-6 lg:py-4 py-5 h-[45vh]  overflow-y-scroll md:overflow-y-auto overflow-x-hidden">
           <h2 class="card-title text-3xl font-bold">
             {{ selectedProduct.name }}
           </h2>
@@ -211,9 +211,9 @@ const filteredProducts = computed(() => {
           <!-- star end -->
 
           <!-- various charges -->
-          <div class="  gap-3 mt-4">
+            <div class=" md:grid md:grid-cols-3 mx-auto md:gap-2 mt-4">
             <div
-              class="h-16 w-28 bg-gray-100 card-sm shadow-sm flex justify-center text-center items-center cursor-pointer my-1"
+              class="h-16 w-28 bg-gray-100 card-sm shadow-sm  justify-center text-center items-center cursor-pointer my-1"
               @click="selectPlan(parseInt(selectedProduct.price / 12 + 500))"
             >
               <p class="font-semibold">
@@ -224,7 +224,7 @@ const filteredProducts = computed(() => {
             </div>
 
             <div
-              class="w-28 h-16 bg-gray-100 card-sm shadow-sm flex justify-center text-center items-center cursor-pointer my-1"
+              class="w-28 h-16 bg-gray-100 card-sm shadow-sm  justify-center text-center items-center cursor-pointer my-1"
               @click="selectPlan(parseInt(selectedProduct.price / 2 + 300))"
             >
               <p class="font-semibold">
@@ -235,7 +235,7 @@ const filteredProducts = computed(() => {
             </div>
 
             <div
-              class="w-28 h-16 bg-gray-100 card-sm shadow-sm flex justify-center text-center items-center cursor-pointer my-1"
+              class="w-28 h-16 bg-gray-100 card-sm shadow-sm justify-center text-center items-center cursor-pointer my-1"
               @click="selectPlan(parseInt(selectedProduct.price))"
             >
               <p class="font-semibold">
