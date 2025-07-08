@@ -92,7 +92,7 @@ const filteredProducts = computed(() => {
     <!-- Tabs -->
     <div
       role="tablist"
-      class="tabs-boxed mb-6 shadow-xl p-3 justify-evenly rounded-b-4xl hidden sm:flex"
+      class="tabs-boxed mb-6 shadow-xl p-3 justify-evenly rounded-b-4xl hidden lg:flex "
     >
       <a
         class="bg-yellow-300 rounded-3xl mx-2 p-2 cursor-pointer"
@@ -116,11 +116,11 @@ const filteredProducts = computed(() => {
 
     <!-- Dropdown for small screens -->
     <div
-      class="sm:hidden visible mb-6 animate__fadeIn animate__animated animate__slow"
+      class="lg:hidden mb-6 animate__fadeIn animate__animated animate__slow"
     >
       <select
         v-model="selectedType"
-        class="select select-bordered w-full bg-amber-300"
+        class="select select-bordered w-full bg-amber-300 "
       >
         <option value="all">All</option>
         <option v-for="type in types" :key="type.value" :value="type.value">
@@ -163,10 +163,10 @@ const filteredProducts = computed(() => {
   <!-- Modal -->
   <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
     <div
-      class="bg-white rounded-xl shadow-lg sm:w-[80%]  mx-auto p-8"
+      class="bg-white rounded-xl shadow-lg sm:w-[80%] mx-auto p-8"
       v-if="selectedProduct"
     >
-      <div class="card w-full grid grid-cols-2">
+      <div class="card w-full sm:grid sm:grid-cols-2 flex ">
         <figure class="sm:p-4 p-2">
           <img
             :src="selectedProduct.image"
@@ -174,7 +174,9 @@ const filteredProducts = computed(() => {
             class="rounded-xl w-full h-60 object-contain"
           />
         </figure>
-        <div class="card-body px-6 py-4 h-80 overflow-y-scroll">
+
+
+        <div class="card-body px-2 lg:px-6 lg:py-4 py-2 h-80 overflow-y-scroll overflow-x-hidden">
           <h2 class="card-title text-3xl font-bold">
             {{ selectedProduct.name }}
           </h2>
@@ -209,7 +211,7 @@ const filteredProducts = computed(() => {
           <!-- star end -->
 
           <!-- various charges -->
-          <div class=" sm:flex gap-3 mt-4">
+          <div class="  gap-3 mt-4">
             <div
               class="h-16 w-28 bg-gray-100 card-sm shadow-sm flex justify-center text-center items-center cursor-pointer my-1"
               @click="selectPlan(parseInt(selectedProduct.price / 12 + 500))"
@@ -241,11 +243,9 @@ const filteredProducts = computed(() => {
               </p>
             </div>
           </div>
-
           <p class="mb-4 font-medium ml-4 text-red-500">
             + 18% GST will be applied for each subscription plan.
           </p>
-
           <div class="flex justify-center space-x-2">
             <button
               @click="handlePay(), closeModal()"
