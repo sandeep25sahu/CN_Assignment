@@ -67,7 +67,7 @@ const filteredProducts = computed(() => {
   </div>
 
   <div
-    class="bg-gray-100 mt-20 mb-20 animate__fadeIn animate__animated animate__slow"
+    class="bg-gray-100 mt-20 mb-20 animate__fadeIn animate__animated animate__slow my-10 py-12"
   >
     <h1 class="text-4xl text-gray-800 font-bold text-center mb-3">
       Choose Category
