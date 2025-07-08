@@ -177,12 +177,12 @@ const filteredProducts = computed(() => {
 
 
        <div class="card-body px-2 lg:px-6 lg:py-4 py-5 h-[45vh]  overflow-y-scroll md:overflow-y-auto overflow-x-hidden">
-          <h2 class="card-title text-3xl font-bold">
+          <h2 class="card-title text-4xl font-bold">
             {{ selectedProduct.name }}
           </h2>
           <p class="text-gray-600">{{ selectedProduct.description }}</p>
           <div class="bg-gray-100 shadow-sm sm:p-4 p-2">
-            <h4 class="text-blue-400 text-xl font-semibold text-center">
+            <h4 class="text-blue-400 text-xl font-bold text-center">
               New Features
             </h4>
             <p>
@@ -199,21 +199,13 @@ const filteredProducts = computed(() => {
             </p>
           </div>
 
-          <!-- stars -->
-          <div class="rating flex items-center gap-1">
-            <input type="radio" class="mask mask-star-2 bg-yellow-400" checked />
-            <input type="radio" class="mask mask-star-2 bg-yellow-400" checked />
-            <input type="radio" class="mask mask-star-2 bg-yellow-400" checked />
-            <input type="radio" class="mask mask-star-2 bg-yellow-400" checked />
-            <input type="radio" class="mask mask-star-2 bg-yellow-400" />
-          </div>
-          <div class="text-gray-600">(120 reviews)</div>
-          <!-- star end -->
-
           <!-- various charges -->
-            <div class=" md:grid md:grid-cols-3 mx-auto md:gap-2 mt-4">
+           <div class="bg-gray-100 w-full justify-center p-3">
+                <p class="my-1  text-blue-400 text-xl font-bold  text-center">Choose the plan first below</p>
+            <div class=" md:grid md:grid-cols-1 md:gap-1 lg:flex lg:gap-3 gap-3">
             <div
-              class="h-16 w-28 bg-gray-100 card-sm shadow-sm  justify-center text-center items-center cursor-pointer my-1"
+              class="h-12 w-28 mx-auto bg-gray-100 card-sm shadow-sm flex justify-center text-center items-center cursor-pointer rounded-lg my-1"
+                :class="selectedAmount === parseInt(selectedProduct.price /12 + 500) ? ' bg-green-400' : ''"
               @click="selectPlan(parseInt(selectedProduct.price / 12 + 500))"
             >
               <p class="font-semibold">
@@ -224,8 +216,9 @@ const filteredProducts = computed(() => {
             </div>
 
             <div
-              class="w-28 h-16 bg-gray-100 card-sm shadow-sm  justify-center text-center items-center cursor-pointer my-1"
+              class="w-28 h-12 mx-auto bg-gray-100 card-sm shadow-sm flex justify-center text-center items-center cursor-pointer my-1 rounded-lg"
               @click="selectPlan(parseInt(selectedProduct.price / 2 + 300))"
+                :class="selectedAmount === parseInt(selectedProduct.price / 2 + 300) ? ' bg-green-400' : ''"
             >
               <p class="font-semibold">
                 ₹{{ parseInt(selectedProduct.price / 2 + 300) }}<span
@@ -235,21 +228,25 @@ const filteredProducts = computed(() => {
             </div>
 
             <div
-              class="w-28 h-16 bg-gray-100 card-sm shadow-sm justify-center text-center items-center cursor-pointer my-1"
+              class="w-28 h-12 mx-auto bg-gray-100 card-sm shadow-sm flex justify-center text-center items-center cursor-pointer rounded-lg my-1"
               @click="selectPlan(parseInt(selectedProduct.price))"
+                :class="selectedAmount === parseInt(selectedProduct.price) ? ' bg-green-400' : ''"
             >
-              <p class="font-semibold">
+              <p class="font-semibold ">
                 ₹{{ parseInt(selectedProduct.price) }}<span>/year</span>
               </p>
             </div>
           </div>
+
+           </div>
+           
           <p class="mb-4 font-medium ml-4 text-red-500">
             + 18% GST will be applied for each subscription plan.
           </p>
           <div class="flex justify-center space-x-2">
             <button
               @click="handlePay(), closeModal()"
-              class="bg-green-500 px-4 py-2 text-white rounded-xl cursor-pointer"
+              class=" bg-green-500 px-4 py-2 text-white rounded-xl cursor-pointer"
             >
               Pay ₹{{ finalAmount }}
             </button>

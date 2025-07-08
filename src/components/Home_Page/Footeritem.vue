@@ -3,9 +3,9 @@
 </script>
 
 <template>
-    <footer class="footer footer-horizontal footer-center bg-base-200 text-base-content p-10">
-  <nav class="grid grid-flow-col gap-4">
-   <ul class="  font-semibold text-xl sm:flex gap-3 "
+    <footer class="footer footer-horizontal footer-center bg-base-200 text-base-content md:p-10 p-5">
+ 
+   <ul class="  font-semibold text-xl flex gap-3 "
     >
       <li>
         <RouterLink to="/" @click="closeDropdown" class="" >Home</RouterLink>
@@ -21,9 +21,7 @@
       </li>
     </ul>
  
-  </nav>
-  <nav>
-    <div class="grid grid-flow-col gap-4">
+    <div class="grid grid-flow-col gap-3">
       <a>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +56,7 @@
         </svg>
       </a>
     </div>
-  </nav>
+
   <aside>
     <p>Copyright ©2025 - All right reserved by Company</p>
   </aside>

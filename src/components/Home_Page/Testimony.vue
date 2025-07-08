@@ -4,7 +4,7 @@ import { RouterLink } from "vue-router";
 
 <template>
   <section
-    class="relative py-16 bg-white overflow-hidden sm:my-16 ny-10 z-0"
+    class="relative py-16 bg-white overflow-hidden sm:my-16 my-10 z-0 h-80"
     data-aos="zoom-in"
     data-aos-duration="1000"
   >
@@ -12,35 +12,35 @@ import { RouterLink } from "vue-router";
       class="absolute inset-0 flex justify-center flex-wrap gap-1 opacity-20 pointer-events-none"
     >
       <img
-        class="rounded-xl w-32 h-84 shadow-lg transform hover:scale-105 transition"
+        class="rounded-xl w-32 h-84 "
         src="https://randomuser.me/api/portraits/men/32.jpg"
       />
       <img
-        class="rounded-xl w-32 h-54 shadow-lg transform hover:scale-105 transition"
+        class="rounded-xl w-32 h-54 "
         src="https://randomuser.me/api/portraits/women/44.jpg"
       />
       <img
-        class="rounded-xl w-32 h-72 shadow-lg transform hover:scale-105 transition"
+        class="rounded-xl w-32 h-72 "
         src="https://randomuser.me/api/portraits/men/65.jpg"
       />
       <img
-        class="rounded-xl w-32 h-60 shadow-lg transform hover:scale-105 transition"
+        class="rounded-xl w-32 h-60 "
         src="https://randomuser.me/api/portraits/women/68.jpg"
       />
       <img
-        class="rounded-xl w-32 h-64 shadow-lg transform hover:scale-105 transition"
+        class="rounded-xl w-32 h-64 "
         src="https://randomuser.me/api/portraits/men/22.jpg"
       />
       <img
-        class="rounded-xl w-32 h-48 shadow-lg transform hover:scale-105 transition"
+        class="rounded-xl w-32 h-48 "
         src="https://randomuser.me/api/portraits/women/19.jpg"
       />
       <img
-        class="rounded-xl w-32 h-60 shadow-lg transform hover:scale-105 transition"
+        class="rounded-xl w-32 h-60 "
         src="https://randomuser.me/api/portraits/men/40.jpg"
       />
       <img
-        class="rounded-xl w-32 h-80 shadow-lg transform hover:scale-105 transition"
+        class="rounded-xl w-32 h-80 "
         src="https://randomuser.me/api/portraits/women/55.jpg"
       />
     </div>

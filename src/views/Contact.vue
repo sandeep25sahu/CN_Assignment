@@ -58,7 +58,7 @@ function handleSubmit(e) {
 </script>
 
 <template>
-  <section class="bg-gray-100 mt-20 sm:w-[70%] w-full mx-auto p-4 sm:p-8 animate__fadeIn animate__animated  animate__slow rounded-b-[10%]">
+  <section class="bg-gray-100 mt-20 sm:w-[70%] w-full mx-auto py-12 sm:p-8 animate__fadeIn animate__animated  animate__slow rounded-b-[10%]">
     <div class="max-w-3xl mx-auto text-center mb-12">
       <h1 class="text-4xl font-bold text-gray-800 mb-4">Contact Us</h1>
       <p class="text-gray-600">
