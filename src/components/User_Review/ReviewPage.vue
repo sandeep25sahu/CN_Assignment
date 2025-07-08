@@ -26,6 +26,13 @@ const repeatedReviews = [...reviews, ...reviews]
         </figure>
         <div class="card-body items-center text-center">
           <h2 class="card-title">{{ item.name }}</h2>
+           <div class="rating flex items-center gap-1">
+            <input type="radio" class="mask mask-star-2 bg-yellow-400" checked />
+            <input type="radio" class="mask mask-star-2 bg-yellow-400" checked />
+            <input type="radio" class="mask mask-star-2 bg-yellow-400"  />
+            <input type="radio" class="mask mask-star-2 bg-yellow-400"  />
+            <input type="radio" class="mask mask-star-2 bg-yellow-400" />
+          </div>
           <p class="w-60 text-center">"{{ item.review }}"</p>
         </div>
       </div>
@@ -48,6 +55,13 @@ const repeatedReviews = [...reviews, ...reviews]
           </figure>
           <div class="card-body items-center text-center">
             <h2 class="card-title">{{ item.name }}</h2>
+             <div class="rating flex items-center gap-1">
+            <input type="radio" class="mask mask-star-2 bg-yellow-400" checked />
+            <input type="radio" class="mask mask-star-2 bg-yellow-400" checked />
+            <input type="radio" class="mask mask-star-2 bg-yellow-400"  />
+            <input type="radio" class="mask mask-star-2 bg-yellow-400"  />
+            <input type="radio" class="mask mask-star-2 bg-yellow-400" />
+          </div>
             <p>"{{ item.review }}"</p>
           </div>
         </div>

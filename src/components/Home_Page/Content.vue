@@ -18,8 +18,7 @@ import 'animate.css';
     Ready for best software?
   </h1>
   <p class="sm:text-lg text-sm mb-6 text-center">
-    Get organic produce and sustainably sourced groceries delivery at up
-    to 4% off grocery.
+    "Discover powerful software tools to supercharge your creativity and productivity."
   </p>
 
   <RouterLink

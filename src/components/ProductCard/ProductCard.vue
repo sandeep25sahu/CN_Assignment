@@ -2,8 +2,8 @@
 import { ref, computed } from "vue";
 import { products } from "../Constant/Constant";
 import "animate.css";
+
 const selectedType = ref("all");
-const selectedProduct = ref(null);
 const showAlert = ref(false);
 
 const types = [
@@ -17,16 +17,28 @@ const types = [
   { label: "Educational Tools", value: "educationalTools" },
 ];
 
+const selectedProduct = ref(null);
+const selectedAmount = ref(0); // Start as 0
+
+const selectPlan = (amount) => {
+  selectedAmount.value = amount;
+};
+
+const finalAmount = computed(() => {
+  return (selectedAmount.value * 1.18).toFixed(0);
+});
+
 function handlePay() {
   showAlert.value = true;
-
   setTimeout(() => {
     showAlert.value = false;
-  }, 2000);
+  }, 3000);
+  
 }
 
 function openModal(product) {
   selectedProduct.value = product;
+  selectedAmount.value = parseInt(product.price); // Default to yearly price on modal open
   document.getElementById("my_modal_5").showModal();
 }
 
@@ -54,7 +66,7 @@ const filteredProducts = computed(() => {
       xmlns="http://www.w3.org/2000/svg"
       class="h-6 w-6 shrink-0 stroke-current"
       fill="none"
-      viewBox="0 0 24 24"
+      viewBox="0 0 16 16"
     >
       <path
         stroke-linecap="round"
@@ -86,9 +98,7 @@ const filteredProducts = computed(() => {
         class="bg-yellow-300 rounded-3xl mx-2 p-2 cursor-pointer"
         role="tab"
         @click="selectedType = 'all'"
-        :class="
-          selectedType === 'all' ? 'tab-active text-red-500' : 'text-black'
-        "
+        :class="selectedType === 'all' ? 'tab-active text-red-500' : 'text-black'"
       >
         All Products
       </a>
@@ -143,7 +153,7 @@ const filteredProducts = computed(() => {
             class="bg-amber-400 hover:bg-blue-400 hover:text-white opacity-80 text-black p-2 rounded font-medium justify-end cursor-pointer"
             @click="openModal(product)"
           >
-            Buy now
+            Check details
           </button>
         </div>
       </div>
@@ -153,35 +163,95 @@ const filteredProducts = computed(() => {
   <!-- Modal -->
   <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
     <div
-      class="bg-white rounded-xl shadow-lg w-full max-w-md mx-auto"
+      class="bg-white rounded-xl shadow-lg sm:w-[80%]  mx-auto p-8"
       v-if="selectedProduct"
     >
-      <div class="card w-full">
-        <figure class="p-4">
+      <div class="card w-full grid grid-cols-2">
+        <figure class="sm:p-4 p-2">
           <img
             :src="selectedProduct.image"
             alt="selectedProductImage"
             class="rounded-xl w-full h-60 object-contain"
           />
         </figure>
-        <div class="card-body px-6 py-4">
-          <h2 class="card-title text-lg font-bold">
+        <div class="card-body px-6 py-4 h-80 overflow-y-scroll">
+          <h2 class="card-title text-3xl font-bold">
             {{ selectedProduct.name }}
           </h2>
-          <p class="text-gray-600 mb-2">{{ selectedProduct.description }}</p>
-          <p class="mb-4 font-medium">
-            Price: ₹{{ selectedProduct.price }} + <span>18% GST</span>
+          <p class="text-gray-600">{{ selectedProduct.description }}</p>
+          <div class="bg-gray-100 shadow-sm sm:p-4 p-2">
+            <h4 class="text-blue-400 text-xl font-semibold text-center">
+              New Features
+            </h4>
+            <p>
+              1️⃣ Layer-based editing — Easily manage and edit different elements
+              separately.<br />
+              2️⃣ Powerful selection tools — Precisely select and isolate any part
+              of an image.<br />
+              3️⃣ Retouching and healing — Remove imperfections and enhance photos
+              flawlessly.<br />
+              4️⃣ Creative filters and effects — Apply artistic looks and unique
+              visual styles.<br />
+              5️⃣ Seamless Adobe integration — Work smoothly with other Adobe apps
+              for a complete design workflow.
+            </p>
+          </div>
+
+          <!-- stars -->
+          <div class="rating flex items-center gap-1">
+            <input type="radio" class="mask mask-star-2 bg-yellow-400" checked />
+            <input type="radio" class="mask mask-star-2 bg-yellow-400" checked />
+            <input type="radio" class="mask mask-star-2 bg-yellow-400" checked />
+            <input type="radio" class="mask mask-star-2 bg-yellow-400" checked />
+            <input type="radio" class="mask mask-star-2 bg-yellow-400" />
+          </div>
+          <div class="text-gray-600">(120 reviews)</div>
+          <!-- star end -->
+
+          <!-- various charges -->
+          <div class=" sm:flex gap-3 mt-4">
+            <div
+              class="h-16 w-28 bg-gray-100 card-sm shadow-sm flex justify-center text-center items-center cursor-pointer my-1"
+              @click="selectPlan(parseInt(selectedProduct.price / 12 + 500))"
+            >
+              <p class="font-semibold">
+                ₹{{ parseInt(selectedProduct.price / 12 + 500) }}<span
+                  >/month</span
+                >
+              </p>
+            </div>
+
+            <div
+              class="w-28 h-16 bg-gray-100 card-sm shadow-sm flex justify-center text-center items-center cursor-pointer my-1"
+              @click="selectPlan(parseInt(selectedProduct.price / 2 + 300))"
+            >
+              <p class="font-semibold">
+                ₹{{ parseInt(selectedProduct.price / 2 + 300) }}<span
+                  >/half yearly</span
+                >
+              </p>
+            </div>
+
+            <div
+              class="w-28 h-16 bg-gray-100 card-sm shadow-sm flex justify-center text-center items-center cursor-pointer my-1"
+              @click="selectPlan(parseInt(selectedProduct.price))"
+            >
+              <p class="font-semibold">
+                ₹{{ parseInt(selectedProduct.price) }}<span>/year</span>
+              </p>
+            </div>
+          </div>
+
+          <p class="mb-4 font-medium ml-4 text-red-500">
+            + 18% GST will be applied for each subscription plan.
           </p>
+
           <div class="flex justify-center space-x-2">
             <button
               @click="handlePay(), closeModal()"
               class="bg-green-500 px-4 py-2 text-white rounded-xl cursor-pointer"
             >
-              Pay ₹{{
-                (selectedProduct.price * 0.18 + selectedProduct.price).toFixed(
-                  0
-                )
-              }}
+              Pay ₹{{ finalAmount }}
             </button>
             <button
               @click="closeModal"
@@ -195,9 +265,3 @@ const filteredProducts = computed(() => {
     </div>
   </dialog>
 </template>
-
-<style scoped>
-.modal::backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-</style>
