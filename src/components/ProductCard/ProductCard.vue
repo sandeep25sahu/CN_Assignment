@@ -209,7 +209,7 @@ const filteredProducts = computed(() => {
               @click="selectPlan(parseInt(selectedProduct.price / 12 + 500))"
             >
               <p class="font-semibold">
-                ₹{{ parseInt(selectedProduct.price / 12 + 500) }}<span
+                ₹{{ parseInt(selectedProduct.price / 12 + 500).toLocaleString() }}<span
                   >/month</span
                 >
               </p>
@@ -221,7 +221,7 @@ const filteredProducts = computed(() => {
                 :class="selectedAmount === parseInt(selectedProduct.price / 2 + 300) ? ' bg-green-400' : ''"
             >
               <p class="font-semibold">
-                ₹{{ parseInt(selectedProduct.price / 2 + 300) }}<span
+                ₹{{ parseInt(selectedProduct.price / 2 + 300).toLocaleString() }}<span
                   >/half yearly</span
                 >
               </p>
@@ -233,7 +233,7 @@ const filteredProducts = computed(() => {
                 :class="selectedAmount === parseInt(selectedProduct.price) ? ' bg-green-400' : ''"
             >
               <p class="font-semibold ">
-                ₹{{ parseInt(selectedProduct.price) }}<span>/year</span>
+                ₹{{ parseInt(selectedProduct.price).toLocaleString() }}<span>/year</span>
               </p>
             </div>
           </div>

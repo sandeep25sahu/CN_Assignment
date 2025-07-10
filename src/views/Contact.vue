@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import Authentication from "../components/Authentication/Authentication.vue";
+
 import 'animate.css'
 const name = ref("");
 const email = ref("");
@@ -58,8 +58,8 @@ function handleSubmit(e) {
 </script>
 
 <template>
-  <section class="bg-gray-100 mt-20 sm:w-[70%] w-full mx-auto py-12 sm:p-8 animate__fadeIn animate__animated  animate__slow rounded-b-[10%]">
-    <div class="max-w-3xl mx-auto text-center mb-12">
+  <section class="bg-gray-100 mt-20 sm:w-[70%] w-full mx-auto py-12 sm:p-8 animate__fadeIn animate__animated  animate__slow rounded-b-[10%] mb-6">
+    <div class="max-w-3xl mx-auto text-center mb-12 ">
       <h1 class="text-4xl font-bold text-gray-800 mb-4">Contact Us</h1>
       <p class="text-gray-600">
         We would love to hear from you. Please fill out the form below and we'll get in touch with you shortly.
@@ -112,6 +112,5 @@ function handleSubmit(e) {
     </form>
   </section>
 
-  <Authentication />
   
 </template>

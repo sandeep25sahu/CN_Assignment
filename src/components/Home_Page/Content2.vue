@@ -12,8 +12,8 @@
     >
       <div class="bg-gray-200 w-full max-w-[250px] mx-auto rounded shadow ">
         <div class="card-body hover:rounded-sm hover:bg-white p-4 h-40">
-          <h2 class="font-bold text-lg sm:text-xl text-gray-900">Wide Range of Tools</h2>
-          <p class="text-black font-semibold">
+          <h2 class="font-bold text-lg sm:text-xl text-gray-800">Wide Range of Tools</h2>
+          <p class="text-gray-500 font-semibold">
             From entertainment to editing and office productivity, find exactly what you need in one place.
           </p>
         </div>
@@ -21,8 +21,8 @@
 
       <div class="bg-gray-200 w-full max-w-[250px] mx-auto rounded shadow ">
         <div class="card-body hover:rounded-sm hover:bg-white p-4 h-40">
-          <h2 class="font-bold text-lg sm:text-xl text-gray-900">Trusted & Verified</h2>
-          <p class="text-black font-semibold">
+          <h2 class="font-bold text-lg sm:text-xl text-gray-800">Trusted & Verified</h2>
+          <p class="text-gray-500 font-semibold">
             Only high-quality, authentic software and AI tools, carefully reviewed.
           </p>
         </div>
@@ -30,8 +30,8 @@
 
       <div class="bg-gray-200 w-full max-w-[250px] mx-auto rounded shadow ">
         <div class="card-body hover:rounded-sm hover:bg-white p-4 h-40">
-          <h2 class="font-bold text-lg sm:text-xl text-gray-900">Affordable Pricing</h2>
-          <p class="text-black font-semibold">
+          <h2 class="font-bold text-lg sm:text-xl text-gray-800">Affordable Pricing</h2>
+          <p class="text-gray-500 font-semibold">
             Competitive prices and exclusive deals to suit every budget.
           </p>
         </div>
@@ -39,8 +39,8 @@
 
       <div class="bg-gray-200 w-full max-w-[250px] mx-auto rounded shadow ">
         <div class="card-body hover:rounded-sm hover:bg-white p-4 h-40">
-          <h2 class="font-bold text-lg sm:text-xl text-gray-900">Instant Access</h2>
-          <p class="text-black font-semibold">
+          <h2 class="font-bold text-lg sm:text-xl text-gray-800">Instant Access</h2>
+          <p class="text-gray-500 font-semibold">
             Download and start using your tools immediately.
           </p>
         </div>
