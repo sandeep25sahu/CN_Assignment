@@ -3,7 +3,7 @@
   <div
     v-if="showAlert"
     role="alert"
-    class="alert alert-success fixed top-12 right-20 w-[50%] justify-center shadow-lg z-100"
+    class="alert alert-success fixed top-12 right-20 w-[50%] justify-center shadow-lg z-100 "
   >
     <span>Your purchase has been confirmed!</span>
   </div>
@@ -23,7 +23,7 @@
             class="rounded-xl w-full sm:h-60 h-48 object-contain"
           />
         </figure>
-        <!-- Buttons (Desktop only) -->
+        <!-- Buttons for tablet and desktop -->
         <div class="justify-center space-x-2 mt-4 hidden md:flex">
           <button
             @click="openModal"
@@ -41,7 +41,7 @@
         </div>
       </div>
 
-      <!-- Right Side (Details) -->
+      <!-- Right Side Products Details -->
       <div class="card-body px-2 lg:px-6 lg:py-4 py-5">
         <h2 class="card-title text-2xl md:text-4xl font-bold text-center">
           {{ selectedProduct.name }}
@@ -60,7 +60,7 @@
           </p>
         </div>
 
-        <!-- Plan selection -->
+        <!-- Plan selection div -->
         <div class="bg-gray-100 w-full justify-center p-3 rounded-xl mt-4">
           <p class="my-1 text-gray-700 text-xl font-bold text-center">
             Select your plan
@@ -100,13 +100,13 @@
             + ₹{{ parseInt(selectedAmount * 0.18).toLocaleString() }} (18% GST applies)
           </p>
           <p class="text-white py-2 sm:text-xl my-6 bg-amber-400 rounded-full font-semibold text-center">
-            Total Payable Amount: ₹{{ Number(finalAmount).toLocaleString() }}
+            Total Payable Amount: ₹{{ Number(finalAmount*1.18).toLocaleString() }}
           </p>
         </div>
       </div>
     </div>
 
-    <!-- Buttons (Mobile only) -->
+    <!-- Buttons for mobile view -->
     <div class="flex justify-center space-x-2 mt-4 sm:hidden visible">
       <button
         @click="openModal"
@@ -125,7 +125,7 @@
   </div>
 
   <!-- Modal -->
-  <dialog id="my_modal_5" class="modal modal-bottom">
+  <dialog id="my_modal_5" class="modal modal-bottom ">
     <div class="bg-white rounded-xl shadow-lg sm:w-[80%] mx-auto p-8 relative" v-if="selectedProduct">
       <button
         @click="closeModal"
@@ -138,15 +138,19 @@
           @click="handlePay"
           class="bg-green-500 px-4 py-2 text-white rounded-xl cursor-pointer w-full sm:w-auto"
         >
-          Pay ₹{{ Number(finalAmount).toLocaleString() }}
+          Pay ₹{{ Number(finalAmount*1.18).toLocaleString() }}
         </button>
-        <button
-          @click="closeModal"
-          :disabled="!InvoiceEnable"
-          class="bg-blue-500 px-4 py-2 text-white rounded-xl cursor-pointer w-full sm:w-auto disabled:bg-gray-400 disabled:cursor-not-allowed"
-        >
-          Get Invoice
-        </button>
+
+        <RouterLink to="/getinvoice">
+          <button
+            @click="handleInvoice"
+            :disabled="!InvoiceEnable"
+            class="bg-blue-500 px-4 py-2 text-white rounded-xl cursor-pointer w-full sm:w-auto disabled:bg-gray-400 disabled:cursor-not-allowed"
+          >
+            Get Invoice
+          </button>
+        </RouterLink>
+
         <button
           @click="closeModal"
           class="bg-red-500 px-4 py-2 text-white rounded-xl cursor-pointer w-full sm:w-auto"
@@ -162,14 +166,13 @@
 import { ref, computed, watchEffect } from "vue";
 import { RouterLink } from "vue-router";
 import { useProductStore } from "../../Stores/ProductStores";
-
 const showAlert = ref(false);
 const InvoiceEnable = ref(false);
 const productStore = useProductStore();
 const selectedProduct = productStore.selectedProduct;
 const selectedAmount = ref(0);
 
-// On load, default select yearly plan
+//  choose the yearly pack
 watchEffect(() => {
   if (selectedProduct) {
     selectedAmount.value = parseInt(selectedProduct.price);
@@ -181,7 +184,7 @@ const selectPlan = (amount) => {
 };
 
 const finalAmount = computed(() => {
-  return (selectedAmount.value * 1.18).toFixed(0);
+  return (selectedAmount.value).toFixed(0);
 });
 
 function handlePay() {
@@ -190,6 +193,39 @@ function handlePay() {
   setTimeout(() => {
     showAlert.value = false;
   }, 3000);
+}
+
+const planType = computed(() => {
+  if (selectedAmount.value === parseInt(selectedProduct.price / 12 + 500)) {
+    return "Monthly";
+  } else if (selectedAmount.value === parseInt(selectedProduct.price / 2 + 300)) {
+    return "6 Months";
+  } else if (selectedAmount.value === parseInt(selectedProduct.price)) {
+    return "Yearly";
+  } else {
+    return "Custom";
+  }
+});
+
+
+// add data for invoice page it shares on invoice page
+function handleInvoice() {
+  productStore.invoiceData = {
+    id: "ORD" + Math.floor(Math.random() * 100000),
+    date: new Date().toLocaleString(),
+    customerName: "Sandeep Sahu",
+    customerEmail: "sandeepsahu00@example.com",
+    items: [
+      {
+        name: selectedProduct.name,
+        quantity: 1,
+        price: selectedAmount.value,
+        planType: planType.value
+      }
+    ],
+    total: parseInt(finalAmount.value)
+      
+  };
 }
 
 function openModal() {

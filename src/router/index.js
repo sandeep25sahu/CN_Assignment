@@ -10,6 +10,7 @@ import Home from "../views/Home.vue";
 import ReviewPage from "../components/User_Review/ReviewPage.vue";
 import AboutUs from "../views/AboutUs.vue";
 import OrderPage from "../components/ProductCard/OrderPage.vue";
+import InvoicePage from "../components/InvoicePage/InvoicePage.vue";
 
 const routes = [
   { path: "/", name: "Home", component: Home },
@@ -19,7 +20,7 @@ const routes = [
    { path: "/review", name: "review", component: ReviewPage },
   { path: "/product", name: "product", component: ProductCard },
     { path: "/orderPage",   name: 'orderPage', component: OrderPage },
-  
+  { path: "/getinvoice",   name: 'getinvoice', component: InvoicePage }
  
 ];
 

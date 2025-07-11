@@ -314,3 +314,36 @@ export const types = [
   { label: "AI Tools", value: "aiTools" },
   { label: "Educational Tools", value: "educationalTools" },
 ];
+
+export const features = [
+  {
+    icon: "🛒",
+    title: "Seamless Shopping",
+    content: "Browse and shop effortlessly with our intuitive interface. Find what you love in seconds — no confusion, no clutter, just pure ease."
+  },
+  {
+    icon: "⚡",
+    title: "Fast & Reliable Delivery",
+    content: "We deliver your orders quickly and safely to your doorstep. Freshness and punctuality are always guaranteed!"
+  },
+  {
+    icon: "🎯",
+    title: "Personalized Picks",
+    content: "Get smart recommendations based on your likes. Discover new products you'll absolutely love without endless searching."
+  },
+  {
+    icon: "🔒",
+    title: "Secure Payments",
+    content: "Pay confidently with our encrypted, secure payment system. We support multiple methods to make checkout quick and safe."
+  },
+  {
+    icon: "🌱",
+    title: "Fresh & Local",
+    content: "We partner with local farmers and trusted suppliers to bring you fresh, sustainable products. Support local communities while you shop!"
+  },
+  {
+    icon: "💬",
+    title: "24/7 Support",
+    content: "Need help? We’re always here for you. Our friendly support team is ready day or night via chat, email, or phone."
+  },
+]

@@ -2,7 +2,8 @@ import { defineStore } from 'pinia'
 
 export const useProductStore = defineStore('product', {
   state: () => ({
-    selectedProduct: null
+    selectedProduct: null,
+    invoiceData: null
   }),
   actions: {
     setProduct(product) {
@@ -10,6 +11,13 @@ export const useProductStore = defineStore('product', {
     },
     clearProduct() {
       this.selectedProduct = null
+    },
+    // New actions for invoice
+    setInvoiceData(invoice) {
+      this.invoiceData = invoice
+    },
+    clearInvoiceData() {
+      this.invoiceData = null
     }
   }
 })
