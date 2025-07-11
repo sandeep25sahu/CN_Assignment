@@ -8,10 +8,10 @@
     <h1 class="text-gray-900 sm:text-5xl text-4xl font-extrabold mb-6">Why Choose Us</h1>
 
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-center"
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-center pb-12"
     >
-      <div class="bg-gray-200 w-full max-w-[250px] mx-auto rounded shadow ">
-        <div class="card-body hover:rounded-sm hover:bg-white p-4 h-40">
+      <div class="bg-gray-200 w-full max-w-[350px] mx-auto rounded shadow ">
+        <div class="card-body hover:rounded-sm hover:bg-white p-4 h-44">
           <h2 class="font-bold text-lg sm:text-xl text-gray-800">Wide Range of Tools</h2>
           <p class="text-gray-500 font-semibold">
             From entertainment to editing and office productivity, find exactly what you need in one place.
@@ -19,8 +19,8 @@
         </div>
       </div>
 
-      <div class="bg-gray-200 w-full max-w-[250px] mx-auto rounded shadow ">
-        <div class="card-body hover:rounded-sm hover:bg-white p-4 h-40">
+      <div class="bg-gray-200 w-full max-w-[350px] mx-auto rounded shadow ">
+        <div class="card-body hover:rounded-sm hover:bg-white p-4 h-44">
           <h2 class="font-bold text-lg sm:text-xl text-gray-800">Trusted & Verified</h2>
           <p class="text-gray-500 font-semibold">
             Only high-quality, authentic software and AI tools, carefully reviewed.
@@ -28,8 +28,8 @@
         </div>
       </div>
 
-      <div class="bg-gray-200 w-full max-w-[250px] mx-auto rounded shadow ">
-        <div class="card-body hover:rounded-sm hover:bg-white p-4 h-40">
+      <div class="bg-gray-200 w-full max-w-[350px] mx-auto rounded shadow ">
+        <div class="card-body hover:rounded-sm hover:bg-white p-4 h-44">
           <h2 class="font-bold text-lg sm:text-xl text-gray-800">Affordable Pricing</h2>
           <p class="text-gray-500 font-semibold">
             Competitive prices and exclusive deals to suit every budget.
@@ -37,8 +37,8 @@
         </div>
       </div>
 
-      <div class="bg-gray-200 w-full max-w-[250px] mx-auto rounded shadow ">
-        <div class="card-body hover:rounded-sm hover:bg-white p-4 h-40">
+      <div class="bg-gray-200 w-full max-w-[350px] mx-auto rounded shadow ">
+        <div class="card-body hover:rounded-sm hover:bg-white p-4 h-44">
           <h2 class="font-bold text-lg sm:text-xl text-gray-800">Instant Access</h2>
           <p class="text-gray-500 font-semibold">
             Download and start using your tools immediately.

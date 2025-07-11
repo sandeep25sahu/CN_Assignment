@@ -1,3 +1,9 @@
+import Img1 from '../../assets/antivirus.png';
+import Img2 from '../../assets/editing.jpg';
+import Img3 from '../../assets/business.png';
+import Img4 from '../../assets/aitools.jpg';
+import Img5 from '../../assets/design.jpg';
+
 
 export const products = [
   // ==== Photo Editing ====
@@ -265,4 +271,46 @@ export const products = [
     image: 'https://randomuser.me/api/portraits/women/55.jpg',
     review: "Very intuitive interface and amazing customer support.",
   },
+];
+export const items = [
+  {
+    id: 1,
+    title: 'Editing Tools',
+    description: 'Tools for edit Video and Photo',
+    image: Img2,
+  },
+  {
+    id: 2,
+    title: 'Security Tools',
+    description: 'Tools to prevent computer system from virus',
+    image: Img1,
+  },
+  {
+    id: 3,
+    title: 'Business Tools',
+    description: 'Tools for improve Business performance',
+    image: Img3,
+  },
+  {
+    id: 4,
+    title: 'AI Tools',
+    description: 'Tools for make Automation',
+    image: Img4,
+  },
+  {
+    id: 5,
+    title: 'Designing Tools',
+    description: 'Tools for make design',
+    image: Img5,
+  },
+];
+export const types = [
+  { label: "Music Production", value: "musicProduction" },
+  { label: "Video  Editing", value: "videoEditing" },
+  { label: "Photo  Editing", value: "photoEditing" },
+  { label: "Antivirus", value: "antivirus" },
+  { label: "Business Tools", value: "businessTools" },
+  { label: "Designing Tools", value: "designTools" },
+  { label: "AI Tools", value: "aiTools" },
+  { label: "Educational Tools", value: "educationalTools" },
 ];

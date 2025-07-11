@@ -4,7 +4,7 @@ import { RouterLink } from "vue-router";
 
 <template>
   <section
-    class="relative py-16 bg-white overflow-hidden sm:my-16 my-10 z-0 h-80"
+    class="relative py-16 bg-white overflow-hidden sm:my-16 my-10 z-0 max-h-max w-full"
     data-aos="zoom-in"
     data-aos-duration="1000"
   >
@@ -12,35 +12,35 @@ import { RouterLink } from "vue-router";
       class="absolute inset-0 flex justify-center flex-wrap gap-1 opacity-20 pointer-events-none"
     >
       <img
-        class="rounded-xl w-32 h-84 "
+        class="rounded-xl w-40 md:w-32 h-84 "
         src="https://randomuser.me/api/portraits/men/32.jpg"
       />
       <img
-        class="rounded-xl w-32 h-54 "
+        class="rounded-xl  w-32 h-54 "
         src="https://randomuser.me/api/portraits/women/44.jpg"
       />
       <img
-        class="rounded-xl w-32 h-72 "
+        class="rounded-xl w-40 md:w-32 h-72 "
         src="https://randomuser.me/api/portraits/men/65.jpg"
       />
       <img
-        class="rounded-xl w-32 h-60 "
+        class="rounded-xl  w-32 h-60 "
         src="https://randomuser.me/api/portraits/women/68.jpg"
       />
       <img
-        class="rounded-xl w-32 h-64 "
+        class="rounded-xl  w-32 h-64 "
         src="https://randomuser.me/api/portraits/men/22.jpg"
       />
       <img
-        class="rounded-xl w-32 h-48 "
+        class="rounded-xl  w-32 h-48 "
         src="https://randomuser.me/api/portraits/women/19.jpg"
       />
       <img
-        class="rounded-xl w-32 h-60 "
+        class="rounded-xl  w-32 h-60 "
         src="https://randomuser.me/api/portraits/men/40.jpg"
       />
       <img
-        class="rounded-xl w-32 h-80 "
+        class="rounded-xl  w-32 h-80 "
         src="https://randomuser.me/api/portraits/women/55.jpg"
       />
     </div>
@@ -54,7 +54,7 @@ import { RouterLink } from "vue-router";
       </p>
       <RouterLink to="/review">
         <button
-          class="inline-flex items-center px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition"
+          class="inline-flex items-center md:px-6 py-3 bg-black text-white text-md px-6 md:text-lg hover:bg-gray-800 transition rounded-full"
         >
           Read Success Stories →
         </button>

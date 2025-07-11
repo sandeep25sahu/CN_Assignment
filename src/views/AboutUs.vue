@@ -6,7 +6,7 @@ import 'animate.css'
 <template>
   <div
   id=""
-    class="rounded-lg text-center my-12 bg-gray-100 p-8 pb-20 shadow-lg max-w-screen-xl max-h-max mx-auto mb-20 animate__fadeIn animate__animated  animate__slow"
+    class="rounded-lg text-center my-12 bg-gray-100 md:p-12 p-4 pb-16 shadow-lg max-w-screen-xl max-h-max mx-auto mb-20 animate__fadeIn animate__animated  animate__slow"
     style="clip-path: ellipse(90% 100% at 50% 0%)"
     data-aos="zoom-in"
     data-aos-duration="1000"
@@ -22,7 +22,7 @@ import 'animate.css'
 
   <!-- Right Column: Content -->
   <div>
-    <p class="text-gray-700 md:text-lg text-sm">
+    <p class="text-gray-700 md:text-lg text-sm ">
       At <span class="bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent text-xl md:text-2xl font-bold">SoftifyMart</span>, we believe technology should make your life easier, more creative, and more productive. 
       That's why we bring you a curated collection of the best software and AI tools from around the world — all in one place.
       <br/><br><hr/><br/>

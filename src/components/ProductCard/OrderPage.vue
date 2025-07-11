@@ -1,52 +1,48 @@
 <script setup>
-import { ref, computed } from "vue";
-import { products,types } from "../Constant/Constant";
-import "animate.css";
-
-const selectedType = ref("all");
-const showAlert = ref(false);
-
-const selectedProduct = ref(null);
-const selectedAmount = ref(0); // Start as 0
-
+import { computed,ref } from "vue";
+import { RouterLink } from "vue-router";
+ const temp={
+    id: 1,
+    name: "Adobe Photoshop",
+    description: "The industry-standard photo editing and design software.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg",
+    price: 21000,
+    type: "photoEditing",
+  }
+  const showAlert = ref(false);
+const selectedProduct = temp;
+const selectedAmount = temp.price; 
+const InvoiceEnable=ref(false)
 const selectPlan = (amount) => {
-  selectedAmount.value = amount;
+  selectedAmount = amount;
 };
-
 const finalAmount = computed(() => {
-  return (selectedAmount.value * 1.18).toFixed(0);
+  return (selectedAmount * 1.18).toFixed(0);
 });
-
 function handlePay() {
   showAlert.value = true;
   setTimeout(() => {
     showAlert.value = false;
   }, 3000);
+  InvoiceEnable.value=true;
   
 }
 
-function openModal(product) {
-  selectedProduct.value = product;
-  selectedAmount.value = parseInt(product.price); // Default to yearly price on modal open
+function openModal() {
+
   document.getElementById("my_modal_5").showModal();
 }
 
 function closeModal() {
   document.getElementById("my_modal_5").close();
-  selectedProduct.value = null;
+ 
 }
 
-const filteredProducts = computed(() => {
-  if (selectedType.value === "all") {
-    return products;
-  }
-  return products.filter((p) => p.type === selectedType.value);
-});
-</script>
+  </script>
 
 <template>
-  <!-- Alert -->
-  <div
+    <!-- Alert -->
+ <div
     v-if="showAlert"
     role="alert"
     class="alert alert-success fixed top-12 right-20 w-[50%] justify-center shadow-lg z-100"
@@ -67,95 +63,11 @@ const filteredProducts = computed(() => {
     <span>Your purchase has been confirmed!</span>
   </div>
 
-  <!-- Category -->
-  <div
-    class="bg-gray-100 mt-20 mb-20 animate__fadeIn animate__animated animate__slow my-10 py-12"
-  >
-    <h1 class="text-4xl text-gray-800 font-bold text-center mb-3">
-      Choose Category
-    </h1>
-    <p class="text-center mb-10 text-gray-600 mx-auto md:w-[60%] w-[90%]">
-      Choose a category to see handpicked software and AI tools tailored for
-      different needs — from entertainment to office work and beyond.
-    </p>
 
-    <!-- Category selection buttons -->
-    <div
-      role="tablist"
-      class="tabs-boxed mb-6 shadow-xl p-4   rounded-b-4xl hidden lg:flex "
-    >
-      <a
-        class="bg-yellow-300 rounded-3xl mx-2 p-2 cursor-pointer w-32 text-center items-center justify-center flex"
-        role="tab"
-        @click="selectedType = 'all'"
-        :class="selectedType === 'all' ? 'tab-active text-red-500 font-semibold' : 'text-black'"
-      >
-        All Products
-      </a>
-      <a
-        class="bg-yellow-300 rounded-3xl mx-2 p-2 cursor-pointer w-32 text-center items-center justify-center flex"
-        v-for="type in types"
-        :key="type.value"
-        role="tab"
-        @click="selectedType = type.value"
-        :class="selectedType === type.value ? 'tab-active text-red-500 font-semibold ' : ''"
-      >
-        {{ type.label }}
-      </a>
-    </div>
 
-    <!-- Dropdown for small screens -->
-    <div
-      class="lg:hidden mb-6 animate__fadeIn animate__animated animate__slow"
-    >
-      <select
-        v-model="selectedType"
-        class="select select-bordered w-full bg-amber-300 "
-      >
-        <option value="all">All</option>
-        <option v-for="type in types" :key="type.value" :value="type.value">
-          {{ type.label }}
-        </option>
-      </select>
-    </div>
 
-    <!-- Product Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3  gap-6">
-      <div
-        v-for="product in filteredProducts"
-        :key="product.id"
-        class="card shadow-xl border-2 border-gray-200 animate__fadeIn animate__animated animate__slow "
-      >
-        <figure>
-          <img
-            :src="product.image"
-            alt="product image"
-            class="md:h-48 h-32 object-contain p-4"
-          />
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title font-bold text-xl md:text-2xl">{{ product.name }}</h2>
-          <p>{{ product.description }}</p>
-          <div class="mt-2 font-bold text-primary">
-            ₹{{ product.price.toLocaleString() }}/year
-          </div>
-          <!-- here i have to share values -->
-           
-          <button
-            class="bg-amber-400 hover:bg-blue-400 hover:text-white opacity-80 text-black p-2 rounded font-medium justify-end cursor-pointer"
-           
-            @click="openModal(product)"
-          >
-            Check details
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal -->
-  <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
-    <div
+    <!-- Order Page -->
+<div
       class="bg-white rounded-xl shadow-lg sm:w-[80%] mx-auto p-8"
       v-if="selectedProduct"
     >
@@ -164,16 +76,16 @@ const filteredProducts = computed(() => {
           <img
             :src="selectedProduct.image"
             alt="selectedProductImage"
-            class="rounded-xl w-full sm:h-60 h-28 object-contain"
+            class="rounded-xl w-full sm:h-60 h-32 object-contain"
           />
         </figure>
-       <div class="card-body px-2 lg:px-6 lg:py-4 py-5 h-[45vh]  overflow-y-scroll md:overflow-y-auto overflow-x-hidden">
-          <h2 class="card-title text-4xl font-bold">
+       <div class="card-body px-2 lg:px-6 lg:py-4 py-5 ">
+          <h2 class="card-title text-2xl md:text-4xl font-bold text-center">
             {{ selectedProduct.name }}
           </h2>
           <p class="text-gray-600">{{ selectedProduct.description }}</p>
           <div class="bg-gray-100 shadow-sm sm:p-4 p-2">
-            <h4 class="text-blue-400 text-xl font-bold text-center">
+            <h4 class="text-gray-700 text-xl font-bold text-center mb-3">
               New Features
             </h4>
             <p>
@@ -191,7 +103,7 @@ const filteredProducts = computed(() => {
           </div>
 <!-- plan selection options -->
            <div class="bg-gray-100 w-full justify-center p-3">
-                <p class="my-1  text-blue-400 text-xl font-bold  text-center">Select your plan</p>
+                <p class="my-1  text-gray-700 text-xl font-bold  text-center">Select your plan</p>
             <div class=" md:grid md:grid-cols-1 md:gap-1 lg:flex lg:gap-3 gap-3">
             <div
               class="h-12 w-28 mx-auto bg-gray-100 card-sm shadow-sm flex justify-center text-center items-center cursor-pointer rounded-lg my-1"
@@ -200,7 +112,7 @@ const filteredProducts = computed(() => {
             >
               <p class="font-semibold">
                 ₹{{ parseInt(selectedProduct.price / 12 + 500).toLocaleString() }}<span
-                  >/1 month</span
+                  >/month</span
                 >
               </p>
             </div>
@@ -235,20 +147,60 @@ const filteredProducts = computed(() => {
           </p>
           <div class="flex justify-center space-x-2">
             <button
-              @click="handlePay(), closeModal()"
+              @click="openModal()"
+              class=" bg-green-500 px-4 py-2 text-white rounded-xl cursor-pointer"
+            >
+             Confirm
+            </button>
+            <RouterLink
+            to="/product"
+            >
+               <button  class="bg-red-500 px-4 py-2 text-white rounded-xl cursor-pointer"> Cancel</button>
+            </RouterLink>
+          </div>
+        </div>
+      </div>
+</div>
+
+<!-- Modal show after confirm -->
+  <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+    
+    <div
+      class="bg-white rounded-xl shadow-lg sm:w-[80%] mx-auto p-8"
+      v-if="selectedProduct"
+    >
+
+          <div class="flex justify-center space-x-2">
+            <button
+              @click="handlePay(), InvoiceEnable()"
               class=" bg-green-500 px-4 py-2 text-white rounded-xl cursor-pointer"
             >
               Pay ₹{{ finalAmount }}
             </button>
-            <button
+         
+             <button
+              v-if="InvoiceEnable"
+              class="bg-blue-500 px-4 py-2 text-white rounded-xl cursor-pointer"
+            >
+            Get Invoice
+            </button>
+
+               <button
               @click="closeModal"
               class="bg-red-500 px-4 py-2 text-white rounded-xl cursor-pointer"
             >
               Cancel
             </button>
+              <h1
+          @click="closeModal"
+          class=" cursor-pointer btn btn-sm btn-circle btn-ghost opacity-70 text-red-500 absolute left-34 top-65    "
+        >
+          ✕
+  </h1>
           </div>
         </div>
-      </div>
-    </div>
+
+    
   </dialog>
+
 </template>

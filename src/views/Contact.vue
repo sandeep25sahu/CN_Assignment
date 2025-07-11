@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
+import 'animate.css';
 
-import 'animate.css'
 const name = ref("");
 const email = ref("");
 const message = ref("");
@@ -49,13 +49,14 @@ function handleSubmit(e) {
   }
 
   if (valid) {
-   alert(`Form submitted successfully! 🎉 \nName: ${name.value}\nEmail: ${email.value}\nMessage: ${message.value}`);
+    alert(`Form submitted successfully! 🎉 \nName: ${name.value}\nEmail: ${email.value}\nMessage: ${message.value}`);
     name.value = "";
     email.value = "";
     message.value = "";
   }
 }
 </script>
+
 
 <template>
   <section class="bg-gray-100 mt-20 sm:w-[70%] w-full mx-auto py-12 sm:p-8 animate__fadeIn animate__animated  animate__slow rounded-b-[10%] mb-6">

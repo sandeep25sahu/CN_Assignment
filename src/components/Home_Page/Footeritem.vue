@@ -5,22 +5,6 @@
 <template>
     <footer class="footer footer-horizontal footer-center bg-base-200 text-base-content md:p-10 p-5">
  
-   <ul class="  font-semibold md:text-xl text-md flex gap-3 "
-    >
-      <li class="hover:drop-shadow-[0_0_15px_rgba(255,185,71,1)]">
-        <RouterLink to="/"  >Home</RouterLink>
-      </li>
-       <li class="hover:drop-shadow-[0_0_15px_rgba(255,185,71,1)]">
-        <RouterLink to="/features" >Features</RouterLink>
-      </li>
-      <li class="hover:drop-shadow-[0_0_15px_rgba(255,185,71,1)]">
-        <RouterLink to="/product" >Product</RouterLink>
-      </li>
-      <li class="hover:drop-shadow-[0_0_15px_rgba(255,185,71,1)]">
-        <RouterLink to="/contact" >Contact</RouterLink>
-      </li>
-    </ul>
- 
     <div class="grid grid-flow-col gap-5">
       <a>
         <svg
