@@ -29,8 +29,8 @@ const repeatedReviews = [...reviews, ...reviews]
            <div class="rating flex items-center gap-1">
             <input type="radio" class="mask mask-star-2 bg-yellow-400" checked />
             <input type="radio" class="mask mask-star-2 bg-yellow-400" checked />
-            <input type="radio" class="mask mask-star-2 bg-yellow-400"  />
-            <input type="radio" class="mask mask-star-2 bg-yellow-400"  />
+            <input type="radio" class="mask mask-star-2 bg-yellow-400" checked/>
+            <input type="radio" class="mask mask-star-2 bg-yellow-400" checked/>
             <input type="radio" class="mask mask-star-2 bg-yellow-400" />
           </div>
           <p class="w-60 text-center">"{{ item.review }}"</p>

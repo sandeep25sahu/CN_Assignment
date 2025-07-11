@@ -1,6 +1,6 @@
-import Img1 from '../../assets/antivirus.png';
+import Img1 from '../../assets/antivirus.jpg';
 import Img2 from '../../assets/editing.jpg';
-import Img3 from '../../assets/business.png';
+import Img3 from '../../assets/business.jpg';
 import Img4 from '../../assets/aitools.jpg';
 import Img5 from '../../assets/design.jpg';
 

@@ -98,7 +98,7 @@ function goToOrderPage(product) {
           </div>
           <RouterLink to="/orderPage">
  <button
-            class="bg-amber-400 hover:bg-blue-400 hover:text-white opacity-80 text-black p-2 rounded font-medium justify-end cursor-pointer"
+            class="bg-amber-400 hover:bg-blue-400 w-full hover:text-white opacity-80 text-black p-2 rounded font-medium justify-end cursor-pointer"
             @click="goToOrderPage(product)"
           >
             Check Details

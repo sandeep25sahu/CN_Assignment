@@ -133,7 +133,9 @@
       >
         ✕
       </button>
+      <p class="text-md text-red-500 flex justify-center items-center font-semibold">Make payment first to get invoice.</p>
       <div class="flex flex-col sm:flex-row sm:justify-center sm:space-x-2 space-y-2 sm:space-y-0 mt-6">
+        
         <button
           @click="handlePay"
           class="bg-green-500 px-4 py-2 text-white rounded-xl cursor-pointer w-full sm:w-auto"
