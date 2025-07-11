@@ -57,18 +57,13 @@
 
       <!-- Buttons -->
       <div class="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-3">
-        <button
+        <RouterLink to="/product">
+          <button
           @click="downloadPDF"
           class="bg-green-600 text-white px-4 py-2 rounded text-sm sm:text-base hover:bg-green-700"
         >
           Download PDF
         </button>
-        <RouterLink to="/product">
-          <button
-            class="bg-amber-400 text-white px-4 py-2 rounded hover:bg-amber-500 text-sm sm:text-base w-full"
-          >
-            Back to Home Page
-          </button>
         </RouterLink>
       </div>
     </div>

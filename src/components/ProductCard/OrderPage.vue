@@ -10,9 +10,10 @@
 
   <!-- Order Page -->
   <div
-    class="bg-white rounded-xl shadow-lg sm:w-[80%] mx-auto p-8 my-16 animate__fadeIn animate__animated  animate__slow "
+    class=" rounded-xl bg-gray-100  sm:w-[80%] mx-auto p-8 my-16 animate__fadeIn animate__animated  animate__slow shadow-lg mt-20 "
     v-if="selectedProduct"
   >
+  <h1 class="text-4xl font-bold text-gray-800 mb-4 text-center">Product Details</h1>
     <div class="card w-full sm:grid sm:grid-cols-2 flex">
       <!-- Left Side (Image and Buttons) -->
       <div>
@@ -43,7 +44,7 @@
 
       <!-- Right Side Products Details -->
       <div class="card-body px-2 lg:px-6 lg:py-4 py-5">
-        <h2 class="card-title text-2xl md:text-4xl font-bold text-center">
+        <h2 class="card-title text-2xl md:text-3xl text-gray-700 font-bold text-center">
           {{ selectedProduct.name }}
         </h2>
         <p class="text-gray-600">{{ selectedProduct.description }}</p>

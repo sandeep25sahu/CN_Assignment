@@ -87,10 +87,10 @@ const closeDropdown = () => {
     <div
       class="ml-auto font-semi gap-3 text-xl mr-24 text-black font-semibold sm:flex hidden animate__fadeIn animate__animated animate__slow"
     >
-      <RouterLink  active-class="underline decoration-2 decoration-yellow-400" to="/" @click="closeDropdown">Home</RouterLink>
-      <RouterLink  active-class="underline decoration-2 decoration-yellow-400" to="/features" @click="closeDropdown">Features</RouterLink>
-      <RouterLink  active-class="underline decoration-2 decoration-yellow-400" to="/product" @click="closeDropdown">Product</RouterLink>
-      <RouterLink  active-class="underline decoration-2 decoration-yellow-400" to="/contact" @click="closeDropdown">Contact</RouterLink>
+      <RouterLink  active-class="underline decoration-2 decoration-yellow-400"   to="/">Home</RouterLink>
+      <RouterLink  active-class="underline decoration-2 decoration-yellow-400"  to="/features" >Features</RouterLink>
+      <RouterLink  active-class="underline decoration-2 decoration-yellow-400"  to="/product" >Product</RouterLink>
+      <RouterLink  active-class="underline decoration-2 decoration-yellow-400"  to="/contact" >Contact</RouterLink>
     </div>
 
     <div class="dropdown hidden md:block ">

@@ -42,7 +42,7 @@ function goToOrderPage(product) {
       class="tabs-boxed mb-6 shadow-xl p-4 rounded-b-4xl hidden lg:flex"
     >
       <a
-        class="bg-yellow-300 rounded-3xl mx-2 p-2 cursor-pointer w-32 text-center items-center justify-center flex"
+        class="bg-yellow-300 rounded-3xl  p-1 cursor-pointer w-32 text-center items-center justify-center flex"
         role="tab"
         @click="selectedType = 'all'"
         :class="selectedType === 'all' ? 'tab-active text-red-500 font-semibold' : 'text-black'"
@@ -50,7 +50,7 @@ function goToOrderPage(product) {
         All Products
       </a>
       <a
-        class="bg-yellow-300 rounded-3xl mx-2 p-2 cursor-pointer w-32 text-center items-center justify-center flex"
+        class="bg-yellow-300 rounded-3xl mx-1 p-1 cursor-pointer w-32 text-center items-center justify-center flex"
         v-for="type in types"
         :key="type.value"
         role="tab"
