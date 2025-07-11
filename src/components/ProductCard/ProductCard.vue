@@ -87,7 +87,7 @@ function goToOrderPage(product) {
           <img
             :src="product.image"
             alt="product image"
-            class="md:h-48 h-32 object-contain p-4"
+            class="h-48 object-contain p-4"
           />
         </figure>
         <div class="card-body">
