@@ -9,14 +9,16 @@ import ProductCard from "../components/ProductCard/ProductCard.vue";
 import Home from "../views/Home.vue";
 import ReviewPage from "../components/User_Review/ReviewPage.vue";
 import AboutUs from "../views/AboutUs.vue";
+import OrderPage from "../components/ProductCard/OrderPage.vue";
 
 const routes = [
   { path: "/", name: "Home", component: Home },
   { path: "/about", name: "about", component:AboutUs },
   { path: "/contact", name: "Contact", component: Contact },
   { path: "/features", name: "Feature", component: Feature },
-  { path: "/product", name: "product", component: ProductCard },
    { path: "/review", name: "review", component: ReviewPage },
+  { path: "/product", name: "product", component: ProductCard },
+    { path: "/orderPage",   name: 'orderPage', component: OrderPage },
   
  
 ];
