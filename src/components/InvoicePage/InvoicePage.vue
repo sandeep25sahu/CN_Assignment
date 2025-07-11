@@ -3,34 +3,34 @@
     <!-- Invoice Section -->
     <div
       id="invoice"
-      class="bg-white p-8 mt-6 shadow-md rounded-md w-full max-w-2xl mx-auto"
+      class="bg-white p-6 sm:p-8 mt-6 shadow-md rounded-md w-full max-w-2xl mx-auto"
       v-if="invoiceData"
     >
       <!-- Header -->
-      <div class="border-b pb-4 mb-4 flex justify-between items-center">
-        <h1 class="text-2xl font-bold text-gray-800">Invoice</h1>
-        <div class="text-gray-600 text-sm text-right">
+      <div class="border-b pb-4 mb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center">
+        <h1 class="text-xl sm:text-2xl font-bold text-gray-800 mb-2 sm:mb-0">Invoice</h1>
+        <div class="text-gray-600 text-xs sm:text-sm text-left sm:text-right">
           <p><strong>Invoice #:</strong> {{ invoiceData.id }}</p>
           <p><strong>Date:</strong> {{ invoiceData.date }}</p>
         </div>
       </div>
 
       <!-- Customer -->
-      <div class="mb-4">
-        <p class="text-gray-700"><strong>Bill To:</strong></p>
-        <p>{{ invoiceData.customerName }}</p>
+      <div class="mb-4 text-sm sm:text-base">
+        <p class="text-gray-700 font-semibold "><strong>Bill To:</strong></p>
+        <p class="">{{ invoiceData.customerName }}</p>
         <p>{{ invoiceData.customerEmail }}</p>
       </div>
 
       <!-- Table -->
-      <table class="w-full text-left mb-4">
+      <table class="w-full text-left mb-4 text-xs sm:text-sm">
         <thead>
           <tr class="bg-gray-100 text-gray-700">
             <th class="py-2 px-2">Item</th>
             <th class="py-2 px-2">Plan Type</th>
             <th class="py-2 px-2">Qty</th>
             <th class="py-2 px-2">Price</th>
-               <th class="py-2 px-2">GST</th>
+            <th class="py-2 px-2">GST</th>
             <th class="py-2 px-2">Total</th>
           </tr>
         </thead>
@@ -44,30 +44,28 @@
             <td class="py-2 px-2">{{ item.planType }}</td>
             <td class="py-2 px-2">1</td>
             <td class="py-2 px-2">₹{{ item.price.toLocaleString() }}</td>
-             <td class="py-2 px-2">₹{{ (item.price*.18).toLocaleString() }}</td>
-            <td class="py-2 px-2">₹{{ (item.price*1.18).toLocaleString() }}</td>
+            <td class="py-2 px-2">₹{{ (item.price * 0.18).toLocaleString() }}</td>
+            <td class="py-2 px-2">₹{{ (item.price * 1.18).toLocaleString() }}</td>
           </tr>
         </tbody>
       </table>
 
       <!-- Total -->
-      <div class="text-right text-lg font-semibold text-gray-800">
-        Grand Total: ₹{{ (invoiceData.total*1.18).toLocaleString() }}
+      <div class="text-right text-base sm:text-lg font-semibold text-gray-800">
+        Grand Total: ₹{{ (invoiceData.total * 1.18).toLocaleString() }}
       </div>
 
       <!-- Buttons -->
-      <div class="mt-6 flex flex-wrap gap-3">
-<RouterLink to="/">
+      <div class="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-3">
+        <button
+          @click="downloadPDF"
+          class="bg-green-600 text-white px-4 py-2 rounded text-sm sm:text-base hover:bg-green-700"
+        >
+          Download PDF
+        </button>
+        <RouterLink to="/product">
           <button
-             @click="downloadPDF"
-            class="bg-green-600 text-white px-4 py-2 rounded"
-          >
-           Download PDF
-          </button>
-        </RouterLink>
-        <RouterLink to="/">
-          <button
-            class="bg-amber-400 text-white px-4 py-2 rounded hover:bg-amber-500"
+            class="bg-amber-400 text-white px-4 py-2 rounded hover:bg-amber-500 text-sm sm:text-base w-full"
           >
             Back to Home Page
           </button>
@@ -116,5 +114,3 @@ async function downloadPDF() {
 }
 </script>
 
-<style scoped>
-</style>

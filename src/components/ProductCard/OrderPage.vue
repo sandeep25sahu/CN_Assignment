@@ -10,7 +10,7 @@
 
   <!-- Order Page -->
   <div
-    class="bg-white rounded-xl shadow-lg sm:w-[80%] mx-auto p-8 my-16"
+    class="bg-white rounded-xl shadow-lg sm:w-[80%] mx-auto p-8 my-16 animate__fadeIn animate__animated  animate__slow "
     v-if="selectedProduct"
   >
     <div class="card w-full sm:grid sm:grid-cols-2 flex">
@@ -125,7 +125,7 @@
   </div>
 
   <!-- Modal -->
-  <dialog id="my_modal_5" class="modal modal-bottom ">
+  <dialog id="my_modal_5" class="modal modal-bottom animate__fadeIn animate__animated  animate__slow  ">
     <div class="bg-white rounded-xl shadow-lg sm:w-[80%] mx-auto p-8 relative" v-if="selectedProduct">
       <button
         @click="closeModal"
@@ -213,8 +213,8 @@ function handleInvoice() {
   productStore.invoiceData = {
     id: "ORD" + Math.floor(Math.random() * 100000),
     date: new Date().toLocaleString(),
-    customerName: "Sandeep Sahu",
-    customerEmail: "sandeepsahu00@example.com",
+    customerName: "Mr. XYZ",
+    customerEmail: "XYZ@example.com",
     items: [
       {
         name: selectedProduct.name,
