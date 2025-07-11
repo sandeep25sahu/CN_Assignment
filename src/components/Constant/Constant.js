@@ -1,8 +1,8 @@
-import Img1 from '../../assets/antivirus.jpg';
-import Img2 from '../../assets/editing.jpg';
-import Img3 from '../../assets/business.jpg';
-import Img4 from '../../assets/aitools.jpg';
-import Img5 from '../../assets/design.jpg';
+import Img1 from '../../assets/antivirus.webp';
+import Img2 from '../../assets/editing.webp';
+import Img3 from '../../assets/business.webp';
+import Img4 from '../../assets/aitools.webp';
+import Img5 from '../../assets/design.webp';
 
 
 export const products = [
